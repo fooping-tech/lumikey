@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumikey 組み立てガイド</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: linear-gradient(135deg, #1e1f26 0%, #2f3055 50%, #1d1f28 100%);
+      --accent: #ffd966;
+      --text: #f0f4ff;
+      --surface: rgba(24, 27, 45, 0.75);
+      --surface-light: rgba(255, 255, 255, 0.85);
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    header {
+      padding: 4rem 1.5rem 3rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      border: 2px solid var(--accent);
+      border-radius: 999px;
+      box-shadow: var(--shadow);
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    header p {
+      margin-top: 1.5rem;
+      font-size: 1.1rem;
+      color: rgba(240, 244, 255, 0.85);
+    }
+
+    main {
+      padding: 0 1.5rem 5rem;
+      max-width: 960px;
+      margin: 0 auto;
+      display: grid;
+      gap: 3rem;
+    }
+
+    section {
+      background: var(--surface);
+      border-radius: 18px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+    }
+
+    section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1.25rem;
+      border-left: 4px solid var(--accent);
+      padding-left: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    section p {
+      color: rgba(240, 244, 255, 0.85);
+    }
+
+    ul, ol {
+      margin-top: 1rem;
+      margin-left: 1.25rem;
+    }
+
+    li + li {
+      margin-top: 0.75rem;
+    }
+
+    .tagline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      background: rgba(255, 217, 102, 0.15);
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    .grid-two {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .card {
+      background: rgba(12, 15, 32, 0.6);
+      border-radius: 14px;
+      padding: 1.5rem;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    }
+
+    .steps {
+      counter-reset: steps;
+    }
+
+    .steps li {
+      list-style: none;
+      position: relative;
+      padding-left: 3.5rem;
+      background: rgba(12, 15, 32, 0.6);
+      border-radius: 14px;
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+      padding-right: 1.5rem;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    }
+
+    .steps li::before {
+      counter-increment: steps;
+      content: counter(steps, decimal-leading-zero);
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: rgba(12, 15, 32, 0.9);
+      background: var(--accent);
+      width: 2.3rem;
+      height: 2.3rem;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    }
+
+    .steps li + li {
+      margin-top: 1rem;
+    }
+
+    .callout {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      padding: 1.5rem;
+      border-radius: 14px;
+      background: rgba(255, 217, 102, 0.12);
+      border: 1px solid rgba(255, 217, 102, 0.35);
+      color: rgba(255, 245, 220, 0.9);
+      box-shadow: inset 0 0 0 1px rgba(255, 217, 102, 0.25);
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1.5rem 4rem;
+      color: rgba(240, 244, 255, 0.65);
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    @media (max-width: 720px) {
+      header {
+        padding-top: 3rem;
+      }
+
+      section {
+        padding: 2rem;
+      }
+
+      .steps li {
+        padding-left: 3rem;
+      }
+
+      .steps li::before {
+        left: 0.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="tagline">光る1キー・キーボード</div>
+    <h1>Lumikey Assembly Guide</h1>
+    <p>Lumikeyは光と遊ぶ1キー・キーボード型キーホルダー。ここでは、初めての方でも安心して組み立てられるように手順とヒントをまとめました。</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>コンセプト</h2>
+      <p>Lumikeyは、スイッチを光らせるための最小構成にこだわったワンキー・キーボードです。キーキャップを好みの色で発光させたり、ショートカットを割り当てたり、ちょっとしたはんだ付けの練習にもぴったり。組み立ては手のひらサイズで完結します。</p>
+    </section>
+
+    <section>
+      <h2>部品リスト</h2>
+      <div class="grid-two">
+        <div class="card">
+          <h3>必須部品</h3>
+          <ul>
+            <li>Lumikey PCB</li>
+            <li>メカニカルキースイッチ (MX互換)</li>
+            <li>キーキャップ (1Uサイズ推奨)</li>
+            <li>LED (アドレス指定型、例: SK6812mini-E)</li>
+            <li>ダイオード (1N4148 など)</li>
+            <li>USB Type-C ケーブル</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>あると便利</h3>
+          <ul>
+            <li>フラックス付きはんだ</li>
+            <li>ピンセットまたはスイッチプラー</li>
+            <li>キーキャッププラー</li>
+            <li>シリコンマットや耐熱シート</li>
+            <li>テスター (導通チェック用)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>組み立て前チェック</h2>
+      <div class="callout">
+        <strong>準備ポイント</strong>
+        <p>作業スペースを確保し、静電気対策として金属部分に触れておきましょう。LEDの向き (データIN/OUT) とダイオードの方向 (ライン側) を確認し、必要な工具が揃っているかチェックします。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>組み立て手順</h2>
+      <ol class="steps">
+        <li>
+          PCBを取り出し、部品面と裏面のシルクを確認します。LEDとダイオードの向きがシルクに示されているかチェックします。
+        </li>
+        <li>
+          LEDを指定のパッドに仮置きし、はんだ付けします。熱をかけすぎないよう10秒以内で作業しましょう。
+        </li>
+        <li>
+          ダイオードをシルクのラインに合わせて配置し、足を曲げて固定したらはんだ付けします。
+        </li>
+        <li>
+          必要に応じてマイコンやリセットボタンなど、他の表面実装部品を先にはんだ付けします。
+        </li>
+        <li>
+          スイッチピンにフラックスを塗布し、PCBにはめ込んだ状態で各ピンをはんだ付けします。
+        </li>
+        <li>
+          USBケーブルを接続し、LEDが点灯するか、スイッチが入力を検出するかをテスターやPCで確認します。
+        </li>
+        <li>
+          キーキャップを装着し、ぐらつきがないかを確かめます。必要なら潤滑油でスイッチを調整してください。
+        </li>
+        <li>
+          完成品を清掃し、ケーブルに取り付けて光の演出を楽しみましょう。
+        </li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>トラブルシューティング</h2>
+      <div class="grid-two">
+        <div class="card">
+          <h3>LEDが光らない場合</h3>
+          <ul>
+            <li>LEDの向きと極性を再確認します。</li>
+            <li>データラインのはんだ付けが切れていないかチェックします。</li>
+            <li>マイコンのファームウェアが正常に書き込まれているか確認します。</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>キー入力が反応しない場合</h3>
+          <ul>
+            <li>スイッチのピンがしっかりはんだ付けされているか確認します。</li>
+            <li>ダイオードの向きが逆になっていないか見直します。</li>
+            <li>USBケーブルや接続機器を別のポートに変えて試します。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>カスタマイズのヒント</h2>
+      <ul>
+        <li>LEDカラーを分割制御できるファームウェアを使用すれば、光り方の演出を自由に設定できます。</li>
+        <li>キーキャップの材質や印字を変えて、持ち歩きたくなるデザインに仕上げましょう。</li>
+        <li>アクリルプレートや3Dプリントケースで保護すれば耐久性アップに繋がります。</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Lumikey Project. 質問や改善案は <a href="https://github.com/">GitHub Issues</a> へお寄せください。</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
