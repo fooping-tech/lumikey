@@ -127,10 +127,10 @@
       padding-left: 3.5rem;
       background: rgba(12, 15, 32, 0.6);
       border-radius: 14px;
-      padding-top: 1.5rem;
-      padding-bottom: 1.5rem;
-      padding-right: 1.5rem;
+      padding: 1.5rem 1.5rem 1.5rem 3.5rem;
       box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+      display: grid;
+      gap: 1.5rem;
     }
 
     .steps li::before {
@@ -154,6 +154,26 @@
 
     .steps li + li {
       margin-top: 1rem;
+    }
+
+    .step-media {
+      margin: 0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+    }
+
+    .step-media img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .step-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      color: rgba(240, 244, 255, 0.9);
     }
 
     .callout {
@@ -190,7 +210,8 @@
       }
 
       .steps li {
-        padding-left: 3rem;
+        padding: 1.25rem 1.25rem 1.25rem 3rem;
+        gap: 1rem;
       }
 
       .steps li::before {
@@ -251,28 +272,101 @@
       <h2>組み立て手順</h2>
       <ol class="steps">
         <li>
-          PCBを取り出し、部品面と裏面のシルクを確認します。LEDとダイオードの向きがシルクに示されているかチェックします。
+          <figure class="step-media">
+            <img src="assets/images/image.jpeg" alt="Lumikey組み立てに必要な部材一式">
+          </figure>
+          <div class="step-detail">
+            <p>必要な部材が全て揃っていることを確認してください。工具や消耗品も含め、作業中に足りなくならないよう事前にチェックします。</p>
+          </div>
         </li>
         <li>
-          LEDを指定のパッドに仮置きし、はんだ付けします。熱をかけすぎないよう10秒以内で作業しましょう。
+          <figure class="step-media">
+            <img src="assets/images/image1.png" alt="Lumikeyの基板を取り出す様子">
+          </figure>
+          <div class="step-detail">
+            <p>基板を取り出します。部品面と裏面に傷や反りがないか軽く確認しておきましょう。</p>
+          </div>
         </li>
         <li>
-          ダイオードをシルクのラインに合わせて配置し、足を曲げて固定したらはんだ付けします。
+          <figure class="step-media">
+            <img src="assets/images/image2.png" alt="R2とR3へチップ抵抗を仮置きしている様子">
+          </figure>
+          <div class="step-detail">
+            <p>R2・R3にチップ抵抗を半田付けします。位置がずれないようピンセットで支えながら作業するときれいに仕上がります。</p>
+          </div>
         </li>
         <li>
-          必要に応じてマイコンやリセットボタンなど、他の表面実装部品を先にはんだ付けします。
+          <figure class="step-media">
+            <img src="assets/images/image3.png" alt="LED2へチップLEDを配置する様子">
+          </figure>
+          <div class="step-detail">
+            <p>LED2にチップLEDを向きを合わせて半田付けします。</p>
+            <p>このときチップLEDの裏面の◀︎と基板シルクの◀︎が同じ方向を向いていることを必ず確認してください。</p>
+          </div>
         </li>
         <li>
-          スイッチピンにフラックスを塗布し、PCBにはめ込んだ状態で各ピンをはんだ付けします。
+          <figure class="step-media">
+            <img src="assets/images/image4.png" alt="LEDの向きを合わせた状態で半田付けした様子">
+          </figure>
+          <div class="step-detail">
+            <p>◀︎の向きが合った状態で半田付けします。ランド同士にブリッジがないか、ルーペで確認すると安心です。</p>
+          </div>
         </li>
         <li>
-          USBケーブルを接続し、LEDが点灯するか、スイッチが入力を検出するかをテスターやPCで確認します。
+          <figure class="step-media">
+            <img src="assets/images/image5.png" alt="用意されたキースイッチ">
+          </figure>
+          <div class="step-detail">
+            <p>キースイッチを準備します。スイッチの脚がまっすぐかどうかもここでチェックしておきましょう。</p>
+          </div>
         </li>
         <li>
-          キーキャップを装着し、ぐらつきがないかを確かめます。必要なら潤滑油でスイッチを調整してください。
+          <figure class="step-media">
+            <img src="assets/images/image6.png" alt="キースイッチのリードをカットしている様子">
+          </figure>
+          <div class="step-detail">
+            <p>キースイッチの右側のリードを3mmカットします。ニッパーを使用し、切りくずが飛ばないよう注意してください。</p>
+          </div>
         </li>
         <li>
-          完成品を清掃し、ケーブルに取り付けて光の演出を楽しみましょう。
+          <figure class="step-media">
+            <img src="assets/images/image7.png" alt="基板へキースイッチを半田付けする様子">
+          </figure>
+          <div class="step-detail">
+            <p>キースイッチを半田付けします。スイッチが斜めに入らないよう、まず片側だけ軽く半田を流して位置を調整してから本付けすると安定します。</p>
+          </div>
+        </li>
+        <li>
+          <figure class="step-media">
+            <img src="assets/images/image8.png" alt="電池ホルダを用意している様子">
+          </figure>
+          <div class="step-detail">
+            <p>電池ホルダを準備します。固定ツメやリードの状態を確認しておきましょう。</p>
+          </div>
+        </li>
+        <li>
+          <figure class="step-media">
+            <img src="assets/images/image9.png" alt="電池ホルダの突起をカットしている様子">
+          </figure>
+          <div class="step-detail">
+            <p>電池ホルダの突起をカットします。こちらもニッパーを使い、切断面が鋭くならないよう軽く整えます。</p>
+          </div>
+        </li>
+        <li>
+          <figure class="step-media">
+            <img src="assets/images/image10.png" alt="基板へ電池ホルダを半田付けしている様子">
+          </figure>
+          <div class="step-detail">
+            <p>電池ホルダを半田付けします。このとき電池ホルダが斜めにならないよう気をつけ、リードの根本まで半田が流れているか確認してください。</p>
+          </div>
+        </li>
+        <li>
+          <figure class="step-media">
+            <img src="assets/images/image12.jpeg" alt="余分なリードをカットして組み立て完了したLumikey">
+          </figure>
+          <div class="step-detail">
+            <p>電池ホルダの飛び出した部分をカットして完成です。仕上げにフラックスを洗浄し、LED点灯とキー入力を最終確認しましょう。</p>
+          </div>
         </li>
       </ol>
     </section>
